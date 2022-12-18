@@ -95,7 +95,9 @@ class _MapScreenState extends State<MapScreen> {
         children: [
           GoogleMap(
             padding: const EdgeInsets.only(bottom: 150.0),
-            mapType: MapType.hybrid,
+            mapType: MapType.normal,
+            zoomGesturesEnabled: true,
+            zoomControlsEnabled: true,
             initialCameraPosition: _currentPosition,
             myLocationButtonEnabled: true,
             myLocationEnabled: true,

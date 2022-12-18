@@ -322,7 +322,7 @@ class ApiRequests {
         .ref()
         .child(Constants.usersCollection)
         .child(Constants.profilePictures)
-        .child(UniqueKey().toString());
+        .child(_firebaseAuth.currentUser!.uid);
 
     UploadTask uploadTask = ref.putFile(_image);
     String imageURL = "";

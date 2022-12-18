@@ -203,14 +203,19 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   void searchPlace(String title) {
-    isSearching = true;
     searchedWord = title;
+    if (searchedWord.isEmpty) return;
 
-    for (var place in allPlaces) {
-      if (place.title.toLowerCase().contains(title.toLowerCase())) {
-        searchedPlaces.add(place);
+    isSearching = true;
+
+    if (searchedWord.isNotEmpty) {
+      for (var place in allPlaces) {
+        if (place.title.toLowerCase().contains(title.toLowerCase())) {
+          searchedPlaces.add(place);
+        }
       }
     }
+
     setState(() {});
   }
 
