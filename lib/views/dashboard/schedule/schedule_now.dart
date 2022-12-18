@@ -221,6 +221,10 @@ class _ScheduleNowState extends State<ScheduleNow> {
     String quantity = quantityController.text.trim();
     // if time is before now, we should ask user to select time.
 
+    DateTime _selectedDate =
+        DateTime(selectedDate.year, selectedDate.month, selectedDate.day);
+    DateTime _today =
+        DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
     if (quantity.isEmpty) {
       showTopSnackBar(
         context,
@@ -228,7 +232,8 @@ class _ScheduleNowState extends State<ScheduleNow> {
           message: "Please type how many items you wish to purchase",
         ),
       );
-    } else if (toDouble(_time) <= toDouble(TimeOfDay.now())) {
+    } else if (_selectedDate.isAtSameMomentAs(_today) &&
+        (toDouble(_time) <= toDouble(TimeOfDay.now()))) {
       showTopSnackBar(
         context,
         const CustomSnackBar.error(
