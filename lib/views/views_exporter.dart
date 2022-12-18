@@ -1,1 +1,17 @@
+export '../controllers/widgets/bottom_nav_bar.dart';
+export '../controllers/widgets/horizontal_place.dart';
+export '../controllers/widgets/icon_badge.dart';
+export '../controllers/widgets/search_bar.dart';
+export 'authentication/forget_password.dart';
 export 'authentication/login.dart';
+export 'authentication/register.dart';
+export 'dashboard/dashboard.dart';
+export 'dashboard/location/location_detail.dart';
+export 'dashboard/map.dart';
+export 'dashboard/notifications.dart';
+export 'dashboard/profile/seller_profile.dart';
+export 'dashboard/profile/user_profile.dart';
+export 'dashboard/schedule/schedule_now.dart';
+export 'dashboard/search.dart';
+export 'on_boarding.dart';
+export 'splash.dart';

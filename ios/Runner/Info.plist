@@ -47,5 +47,13 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app needs access to location when open.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to photo library so that photos can be selected for user profile.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>We need access to device camera so that you can capture images for user profile.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>We need access to device microphone along with camera. just required for capturing image procedure.</string>
 </dict>
 </plist>
