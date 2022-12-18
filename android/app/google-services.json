@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "328369922697",
+    "project_id": "thepaktours-d2ddf",
+    "storage_bucket": "thepaktours-d2ddf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328369922697:android:dcaaaf137b479c5e361c58",
+        "android_client_info": {
+          "package_name": "com.application.the_pak_tours"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328369922697-7ndp2q0i6fa8vevdm2e8f8l2e3f94cb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKJoT9kcMCq1Sxgx7h7qhSFp2CVllFi5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328369922697-7ndp2q0i6fa8vevdm2e8f8l2e3f94cb1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "328369922697-njmt000h7kte1d6ms9m40rjbl49h0rls.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tourAppSeller"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328369922697:android:c6f70c0f4c91a6cb361c58",
+        "android_client_info": {
+          "package_name": "com.example.tour_app_seller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328369922697-7ndp2q0i6fa8vevdm2e8f8l2e3f94cb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKJoT9kcMCq1Sxgx7h7qhSFp2CVllFi5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328369922697-7ndp2q0i6fa8vevdm2e8f8l2e3f94cb1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "328369922697-njmt000h7kte1d6ms9m40rjbl49h0rls.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tourAppSeller"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328369922697:android:e5c415f0e4b3aced361c58",
+        "android_client_info": {
+          "package_name": "com.example.tour_app_user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328369922697-7ndp2q0i6fa8vevdm2e8f8l2e3f94cb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKJoT9kcMCq1Sxgx7h7qhSFp2CVllFi5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328369922697-7ndp2q0i6fa8vevdm2e8f8l2e3f94cb1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "328369922697-njmt000h7kte1d6ms9m40rjbl49h0rls.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tourAppSeller"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
