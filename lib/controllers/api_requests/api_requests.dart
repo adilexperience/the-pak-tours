@@ -445,4 +445,13 @@ class ApiRequests {
   static Future<void> sendEmailVerificationLink() async {
     await _firebaseAuth.currentUser!.sendEmailVerification();
   }
+
+  static Future<bool> checkIfNotTourist() async {
+    UserModel user = await getLoggedInUser();
+    if (user.roles.contains("tourist")) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }

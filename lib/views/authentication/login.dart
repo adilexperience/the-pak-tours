@@ -272,7 +272,17 @@ class _LoginState extends State<Login> {
       await ApiRequests.login(email, password, context: context);
       setLoading(false);
 
-      if (ApiRequests.checkEmailVerificationStatus()) {
+      if (await ApiRequests.checkIfNotTourist()) {
+        showTopSnackBar(
+          context,
+          const CustomSnackBar.error(
+            message:
+                "Only tourists are allowed to use this application. Sellers should user their dedicated application.",
+            maxLines: 4,
+          ),
+        );
+        ApiRequests.signOut(context);
+      } else if (ApiRequests.checkEmailVerificationStatus()) {
         Constants.pushAndRemoveAll(context, Dashboard());
       } else {
         await ApiRequests.sendEmailVerificationLink();
