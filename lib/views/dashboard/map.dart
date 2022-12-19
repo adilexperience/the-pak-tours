@@ -118,10 +118,9 @@ class _MapScreenState extends State<MapScreen> {
                       child: ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.only(
+                        padding: EdgeInsets.only(
                           left: 8.0,
-                          top: 10.0,
-                          bottom: 10.0,
+                          bottom: MediaQuery.of(context).size.height * 0.01,
                         ),
                         physics: const BouncingScrollPhysics(),
                         itemCount: nearbyPlaces.length,
