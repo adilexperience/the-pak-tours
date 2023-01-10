@@ -30,6 +30,9 @@ dependencies:
   image_picker: ^0.8.6
   flutter_rating_bar: ^4.0.1
 
+  # api request mainly for weather api
+  http: ^0.13.5
+
   firebase_core: ^2.4.0
   firebase_auth: ^4.2.0
   cloud_firestore: ^4.2.0

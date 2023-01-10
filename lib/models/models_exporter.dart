@@ -5,3 +5,4 @@ export 'place_model.dart';
 export 'product_model.dart';
 export 'review_model.dart';
 export 'user_model.dart';
+export 'weather_model.dart';

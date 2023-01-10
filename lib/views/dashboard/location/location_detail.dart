@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:the_pak_tours/controllers/controllers_exporter.dart';
 import 'package:the_pak_tours/models/models_exporter.dart';
@@ -40,7 +41,6 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Orientation _orientation = MediaQuery.of(context).orientation;
     Size _size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -119,6 +119,69 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
                         style: const TextStyle(
                           color: AppColors.lightText,
                           fontSize: 14.0,
+                        ),
+                      ),
+                      const SizedBox(height: 30.0),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: _size.width * 0.02),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                            color: Colors.white.withOpacity(0.05),
+                          ),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  '5-day forecast | Every 3 hours',
+                                  style: GoogleFonts.questrial(
+                                    color: Colors.black,
+                                    fontSize: _size.height * 0.025,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              const Divider(color: Colors.black),
+                              FutureBuilder<WeatherModel>(
+                                future: ApiRequests.getWeatherInformation(
+                                  widget.place.location.latitude,
+                                  widget.place.location.longitude,
+                                ),
+                                builder: (context, snapshot) {
+                                  if (!snapshot.hasData) {
+                                    return const Center(
+                                      child: CupertinoActivityIndicator(),
+                                    );
+                                  }
+                                  WeatherModel weather = snapshot.data!;
+                                  return ListView.builder(
+                                    shrinkWrap: true,
+                                    padding: EdgeInsets.zero,
+                                    scrollDirection: Axis.vertical,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    itemCount: weather.list?.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      ListElement? weatherListElement =
+                                          weather.list!.elementAt(index);
+                                      return buildSevenDayForecast(
+                                        "${weatherListElement!.dtTxt!.day}-${weatherListElement.dtTxt!.month}-${weatherListElement.dtTxt!.year} ${weatherListElement.dtTxt!.toString().substring(11, 16)}",
+                                        weatherListElement.main!.tempMin!,
+                                        weatherListElement.main!.tempMax!,
+                                        'http://openweathermap.org/img/w/${weatherListElement.weather!.first!.icon}.png',
+                                        _size,
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(height: 30.0),
@@ -317,7 +380,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
                                 child: CupertinoActivityIndicator(),
                               );
                             }
-                            if (snapshot.data!.isEmpty) {
+                            if (snapshot.data == null) {
                               return const NoRecordsAvailable(
                                 title: "No nearby sellers available",
                                 description:
@@ -472,7 +535,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
                       ),
                       const SizedBox(height: 10.0),
                       SizedBox(
-                        height: 260.0,
+                        height: 280.0,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
@@ -495,7 +558,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
                       ),
                       const SizedBox(height: 10.0),
                       SizedBox(
-                        height: 240.0,
+                        height: 260.0,
                         child: FutureBuilder<List<PlaceModel>>(
                           future: ApiRequests.getNearbyPlaces(
                             LatLng(
@@ -567,6 +630,59 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
     );
   }
 
+  Widget buildSevenDayForecast(
+      String time, double minTemp, double maxTemp, String weatherIcon, size) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                time,
+                style: GoogleFonts.questrial(
+                  color: Colors.black,
+                  fontSize: size.height * 0.025,
+                ),
+              ),
+            ),
+            Image.network(
+              weatherIcon,
+              color: Colors.black,
+            ),
+            const SizedBox(width: 10.0),
+            Expanded(
+              flex: 2,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      '$minTemp˚C',
+                      style: GoogleFonts.questrial(
+                        color: Colors.black38,
+                        fontSize: size.height * 0.025,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10.0),
+                  Expanded(
+                    child: Text(
+                      '$maxTemp˚C',
+                      style: GoogleFonts.questrial(
+                        color: Colors.black,
+                        fontSize: size.height * 0.025,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const Divider(color: Colors.black),
+      ],
+    );
+  }
+
   void _publishReview() async {
     String feedback = feedbackController.text.trim();
     if (feedback.isEmpty) {
@@ -585,9 +701,9 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
           reviews.length + 1; // adding +1 to include this new review in rating
       double totalStars =
           placeRating; // adding user rating as initial and then adding previous ratings to get complete rating
-      reviews.forEach((element) {
+      for (var element in reviews) {
         totalStars += element.rating;
-      });
+      }
 
       double finalRating = totalStars / totalReviews;
       await ApiRequests.updatePlaceRating(finalRating, widget.place.id);
