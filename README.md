@@ -1,15 +1,45 @@
 # the_pak_tours
 
-A new Flutter project.
+PakTours, Tourist exploration mobile application to inform user about nearby heritage locations. Connected with admin panel, sellers and hotels for convenience of tourist to shop, explore and enjoy. More features included are below:
 
-## Will add screenshots and links here soon
 
-This project is a starting point for a Flutter application.
+[Android APK](https://drive.google.com/file/d/1eCNvNju_X3NwOwg3uTnj4mBUAAumrogs/view?usp=share_link)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Development Environment:
+<p align="center">
+    <img src="assets/screenshots/terminal.png" width="450" height="850" />
+</p>
+<br /><br />
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials
+<p align="center">
+    <img src="assets/screenshots/explore_splash.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/forget_password.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/login.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/nearby.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/notifications.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/place_details.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/register.png" width="450" height="850" />
+</p>
+<br />
+<p align="center">
+    <img src="assets/screenshots/search_wishlist.png" width="450" height="850" />
+</p>
