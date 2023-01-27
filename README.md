@@ -8,7 +8,7 @@ PakTours, Tourist exploration mobile application to inform user about nearby her
 
 Development Environment:
 <p align="center">
-    <img src="assets/screenshots/terminal.png" width="450" height="850" />
+    <img src="assets/screenshots/terminal.png" width="850" height="450" />
 </p>
 <br /><br />
 
