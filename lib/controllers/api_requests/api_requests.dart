@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -6,6 +7,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:http/http.dart' as http;
 import 'package:the_pak_tours/controllers/controllers_exporter.dart';
 import 'package:the_pak_tours/models/models_exporter.dart';
 import 'package:the_pak_tours/views/views_exporter.dart';
@@ -232,7 +234,7 @@ class ApiRequests {
   static Future<List<PlaceModel>> getAllPlaces() async {
     List<PlaceModel> places = [];
     await _firebaseFirestore
-        .collectionGroup(Constants.placesCollection)
+        .collection(Constants.placesCollection)
         .get()
         .then((value) {
       for (var element in value.docs) {
@@ -453,5 +455,15 @@ class ApiRequests {
     } else {
       return true;
     }
+  }
+
+  static Future<WeatherModel> getWeatherInformation(
+      double latitude, double longitude) async {
+    var response = await http.post(
+      Uri.parse(
+        Constants.mapApi(latitude, longitude, "forecast"),
+      ),
+    );
+    return WeatherModel.fromJson(jsonDecode(response.body));
   }
 }

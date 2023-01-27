@@ -20,9 +20,14 @@ class Constants {
 
   static String applicationName = "PakTours";
 
-  static int nearbyPlacesDistanceInKilometers = 10;
+  static int nearbyPlacesDistanceInKilometers = 100;
   static int nearbySellerDistanceInKilometers = 20;
   static double mapDefaultZoom = 15.0746;
+
+  static String mapApi(double latitude, double longitude, String callType) =>
+      "https://api.openweathermap.org/data/2.5/$callType?lat=$latitude&lon=$longitude&appid=$weatherApiKey&units=metric";
+  static const String weatherApiKey =
+      "8a2724044dd61447b5e2b14949d6042e"; // from open weather dashboard (https://home.openweathermap.org/api_keys)
 
   static void pushNamed(BuildContext context, String destination) {
     Navigator.of(context).pushNamed(destination);
