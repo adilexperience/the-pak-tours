@@ -234,7 +234,7 @@ class ApiRequests {
   static Future<List<PlaceModel>> getAllPlaces() async {
     List<PlaceModel> places = [];
     await _firebaseFirestore
-        .collectionGroup(Constants.placesCollection)
+        .collection(Constants.placesCollection)
         .get()
         .then((value) {
       for (var element in value.docs) {
