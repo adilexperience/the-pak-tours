@@ -217,17 +217,17 @@ class ApiRequests {
 
   static Future<List<PlaceModel>> getNearbyPlaces(LatLng currentLatLng,
       {String? activePlaceID}) async {
-    List<PlaceModel> nearbyPlaces = [];
-    List<PlaceModel> places = await getAllPlaces();
-    for (var place in places) {
-      if (Constants.getDistance(currentLatLng,
-              LatLng(place.location.latitude, place.location.longitude)) <=
-          Constants.nearbyPlacesDistanceInKilometers) {
-        if (!(activePlaceID != null && activePlaceID == place.id)) {
-          nearbyPlaces.add(place);
-        }
-      }
-    }
+    List<PlaceModel> nearbyPlaces = await getAllPlaces();
+    // List<PlaceModel> places = await getAllPlaces();
+    // for (var place in places) {
+    //   if (Constants.getDistance(currentLatLng,
+    //           LatLng(place.location.latitude, place.location.longitude)) <=
+    //       Constants.nearbyPlacesDistanceInKilometers) {
+    //     if (!(activePlaceID != null && activePlaceID == place.id)) {
+    //       nearbyPlaces.add(place);
+    //     }
+    //   }
+    // }
     return nearbyPlaces;
   }
 
