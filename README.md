@@ -2,7 +2,6 @@
 
 PakTours, Tourist exploration mobile application to inform user about nearby heritage locations. Connected with admin panel, sellers and hotels for convenience of tourist to shop, explore and enjoy. More features included are below:
 
-
 [Android APK](https://github.com/adilexperience/the-pak-tours/blob/main/assets/ThePakTours%20-%20Tourist.apk)
 
 
