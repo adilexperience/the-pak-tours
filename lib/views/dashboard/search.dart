@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as material;
 import 'package:the_pak_tours/controllers/controllers_exporter.dart';
 import 'package:the_pak_tours/models/models_exporter.dart';
 
@@ -25,7 +25,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return material.Scaffold(
       backgroundColor: AppColors.lightText.withOpacity(0.10),
       body: SingleChildScrollView(
         child: Column(
@@ -51,7 +51,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       style: TextStyle(
                         fontSize: 30.0,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: material.Colors.white,
                       ),
                     ),
                   ),
@@ -111,10 +111,10 @@ class _SearchScreenState extends State<SearchScreen> {
                       ],
                     ),
                   )
-                : SizedBox(
+                : const SizedBox(
                     height: 260.0,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
+                      padding: EdgeInsets.symmetric(
                         horizontal: 5.0,
                         vertical: 5.0,
                       ),
@@ -125,11 +125,11 @@ class _SearchScreenState extends State<SearchScreen> {
                             "Pakistan is home number of UNESCO world heritage sites like, Archaeological Ruins at Moenjodaro, Buddhist Ruins of Takht-i-Bahi and Neighbouring City Remains at Sahr-i-Bahlol, Fort and Shalamar Gardens in Lahore, Historical Monuments at Makli, Thatta, Rohtas Fort and Taxila.",
                         belowChild: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
+                          children: [
                             SizedBox(height: 20.0),
                             TileCard(
                               title: "Insightful",
-                              bgColor: Colors.yellow,
+                              bgColor: material.Colors.yellow,
                               textColor: AppColors.strongText,
                             ),
                           ],
