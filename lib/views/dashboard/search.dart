@@ -111,7 +111,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       ],
                     ),
                   )
-                : const SizedBox(
+                : SizedBox(
                     height: 260.0,
                     child: Padding(
                       padding: EdgeInsets.symmetric(
