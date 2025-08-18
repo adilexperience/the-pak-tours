@@ -254,14 +254,14 @@ class _LoginState extends State<Login> {
 
     if (!isEmailValidated) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(
           message: "Please enter valid email-address to proceed",
         ),
       );
     } else if (!isPasswordValidated) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(
           message: "Type your correct password to proceed.",
         ),
@@ -274,7 +274,7 @@ class _LoginState extends State<Login> {
 
       if (await ApiRequests.checkIfNotTourist()) {
         showTopSnackBar(
-          context,
+          Overlay.of(context),
           const CustomSnackBar.error(
             message:
                 "Only tourists are allowed to use this application. Sellers should user their dedicated application.",
@@ -287,7 +287,7 @@ class _LoginState extends State<Login> {
       } else {
         await ApiRequests.sendEmailVerificationLink();
         showTopSnackBar(
-          context,
+          Overlay.of(context),
           const CustomSnackBar.error(
             message:
                 "Verify your email-address to login. link shared at your email-address",

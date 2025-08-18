@@ -292,7 +292,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
       setLoading(false);
     } else {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(
             message: "Please enter valid email address and continue"),
       );

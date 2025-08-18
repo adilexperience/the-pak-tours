@@ -687,7 +687,7 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
     String feedback = feedbackController.text.trim();
     if (feedback.isEmpty) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(
           message: "Enter your feedback to publish the review",
         ),

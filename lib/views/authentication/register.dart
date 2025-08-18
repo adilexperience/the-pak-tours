@@ -226,18 +226,18 @@ class _RegisterState extends State<Register> {
 
     if (name.isEmpty) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(message: "Please enter your name"),
       );
     } else if (!isEmailValidated) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(
             message: "Please enter valid email address to proceed"),
       );
     } else if (!isPasswordValidated || !isRepPasswordValidated) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(
             message:
                 "Please enter strong password and repeat password should be same"),
@@ -252,7 +252,7 @@ class _RegisterState extends State<Register> {
         context: context,
       ).then((value) {
         showTopSnackBar(
-          context,
+          Overlay.of(context),
           const CustomSnackBar.success(
             message:
                 "Email verification link sent, please verify your email-address to login",
@@ -261,7 +261,7 @@ class _RegisterState extends State<Register> {
         ApiRequests.signOut(context);
       }).onError((error, stackTrace) {
         showTopSnackBar(
-          context,
+          Overlay.of(context),
           CustomSnackBar.error(
             message: error.toString(),
           ),

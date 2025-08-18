@@ -1,5 +1,6 @@
 // take location or products in parameter to schedule
 import 'package:day_night_time_picker/lib/daynight_timepicker.dart';
+import 'package:day_night_time_picker/lib/state/time.dart';
 import 'package:flutter/material.dart';
 import 'package:the_pak_tours/controllers/controllers_exporter.dart';
 import 'package:the_pak_tours/models/models_exporter.dart';
@@ -23,7 +24,7 @@ class ScheduleNow extends StatefulWidget {
 class _ScheduleNowState extends State<ScheduleNow> {
   bool _isLoading = false,
       isPlanningToday = true; // setting planning today to initial true
-  TimeOfDay _time = TimeOfDay.now();
+  Time _time = Time.fromTimeOfDay(TimeOfDay.now(), 0);
   DateTime selectedDate = DateTime.now();
   TextEditingController quantityController = TextEditingController();
 
@@ -198,7 +199,7 @@ class _ScheduleNowState extends State<ScheduleNow> {
     setState(() {});
   }
 
-  void onTimeChanged(TimeOfDay selectedTime) {
+  void onTimeChanged(Time selectedTime) {
     _time = selectedTime;
     setState(() {});
   }
@@ -227,7 +228,7 @@ class _ScheduleNowState extends State<ScheduleNow> {
         DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day);
     if (quantity.isEmpty) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(
           message: "Please type how many items you wish to purchase",
         ),
@@ -235,7 +236,7 @@ class _ScheduleNowState extends State<ScheduleNow> {
     } else if (_selectedDate.isAtSameMomentAs(_today) &&
         (toDouble(_time) <= toDouble(TimeOfDay.now()))) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(
           message: "Please select time ahead of now.",
         ),

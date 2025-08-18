@@ -190,7 +190,7 @@ class _TouristProfileScreenState extends State<TouristProfileScreen> {
     String newName = _usernameController.text.trim();
     if (newName.isEmpty || newName == _user.name) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.error(message: "Please enter new name to proceed"),
       );
       return;
@@ -213,7 +213,7 @@ class _TouristProfileScreenState extends State<TouristProfileScreen> {
     setState(() {
       _isLoading = false;
     });
-    showTopSnackBar(context, CustomSnackBar.error(message: error));
+    showTopSnackBar(Overlay.of(context), CustomSnackBar.error(message: error));
   }
 
   void _processImageUpload() async {

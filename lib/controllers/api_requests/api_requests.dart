@@ -56,7 +56,7 @@ class ApiRequests {
       return true;
     }).onError((error, stackTrace) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         CustomSnackBar.error(
           message: error.toString(),
         ),
@@ -71,7 +71,7 @@ class ApiRequests {
         .sendPasswordResetEmail(email: email)
         .then((value) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         const CustomSnackBar.success(
           message: "Instructions shared on your associated email address",
         ),
@@ -79,7 +79,7 @@ class ApiRequests {
       return true;
     }).onError((error, stackTrace) {
       showTopSnackBar(
-        context,
+        Overlay.of(context),
         CustomSnackBar.error(message: error.toString()),
       );
       return false;
